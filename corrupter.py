@@ -28,6 +28,11 @@ def corrupt_random_swap(list_of_options):
         return new_string
     return corrupt
 
+def corrupt_delete():
+    def corrupt(old_string):
+        return np.nan
+    return corrupt
+
 def corrupt_postcode(postcode_list):
     def corrupt(old_postcode):
         optional_postcodes = [postcode for postcode in postcode_list if postcode != old_postcode]
