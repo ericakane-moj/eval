@@ -61,8 +61,6 @@ def apply_corrupt_to_df(df, field_corruptions):
 
     df_base = df.copy()
     df_corrupted = df_base.apply(lambda row: apply_corrupt_to_row(row, field_corruptions), axis=1)
-    df_corrupted['unique_id'] = df_corrupted['unique_id'].str.replace('-1', '-2')
-
+    df_corrupted['unique_id'] = df_base['unique_id'].str.replace('-1', '-2')
     final_df = pd.concat([df_base, df_corrupted], ignore_index=True)
-
     return final_df
